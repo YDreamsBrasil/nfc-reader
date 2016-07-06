@@ -1,4 +1,5 @@
 #! /usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Referências
 
@@ -36,12 +37,14 @@ GET_RESPONSE    = [0XA0, 0XC0, 00, 00]
 DF_TELECOM      = [0x7F, 0x10]
 
 # Define IP and Port for UDP connection 
-UDP_IP      = ''
+UDP_IP      = socket.gethostname() 
 UDP_PORT    = 2331
 UDP_MESSAGE = ''
 UDP_RAW_MSG = ''
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
 
 
 
@@ -126,7 +129,8 @@ if __name__ == '__main__':
 
 
 if __name__ == "__main__":
-    sock.bind(('', 2331))
+    sock.bind((socket.gethostname(), UDP_PORT))
+
 
 
 while True:
