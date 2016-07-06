@@ -10,6 +10,7 @@ http://pyscard.sourceforge.net/user-guide.html#the-reader-centric-approach
 
 ### Running
 `Run pip install -r requirements.txt`
+
 `python nfc-server.py`
 
 #### Socketserver doc
